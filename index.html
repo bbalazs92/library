@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>objects</title>
+</head>
+<body>
+	<div id="container">
+	<h1>Welcome to the Bookstore!</h1>
+		<form>
+			<fieldset class="book-info">
+			<label>
+				Title
+				<input type="text" name="Title" class="title" required>
+			</label>
+			<label>
+				Author
+				<input type="text" name="Author" class="author" required>
+			</label>
+			<label>
+				Pages
+				<input type="text" name="Pages" class="pages" required>
+			</label>
+			</fieldset>
+		<fieldset class="book-action">
+			<input type="button" name="submit" value="Add" class="btn">
+		</fieldset>
+		</form>
+	<div class="table_container"></div>
+	</div>
+	<script type="text/javascript">
+
+			const container = document.querySelector('#container');
+			const table_container = document.querySelector('.table_container');
+
+			var title = document.querySelector('.title');
+			var author = document.querySelector('.author');
+			var pages = document.querySelector('.pages');	
+			var button = document.querySelector('.btn');
+			var bookArray = [];
+
+			title.innerHTML = "asd";
+
+			button.addEventListener('click', function() {
+				//create a function to check if a field is empty
+				if (!isEmpty()) {
+					createBook();
+					deleteTable();	
+					var newTable = document.createElement("table");
+					table_container.appendChild(newTable);
+
+					for (var i = 0; i < bookArray.length; i++) {
+						var newRow = document.createElement("tr");
+						var newData = document.createElement("td");
+						newTable.appendChild(newRow);
+						newTable.appendChild(newData);
+					};							
+				} else {
+					alert("Field cant be empty!");
+				};
+
+
+				//delete the previous table to have a properly sized table
+				
+
+
+/*
+				newTable.style.background = "#2B616D"; 
+				newTable.style.width = "300px";
+				newTable.style.height = "auto";
+				newData.style.height = "30px";
+				newData.style.border = "1px solid #cecfd5";
+*/				
+			});
+
+			//constructor 
+			function book(title, author, pages) {
+				this.title = title;
+				this.author = author;
+				this.pages = pages;	
+			};
+
+			function createBook() {
+				var newBook = new book(title.value, author.value, pages.value);	
+				bookArray.push(newBook);
+				console.log(bookArray);	
+			};
+
+			function deleteTable() {
+				while (table_container.hasChildNodes()) {
+					table_container.removeChild(table_container.childNodes[0]);
+				};	
+			};
+
+			function isEmpty() {
+				if (title.innerHTML === "" || author.innerHTML === "" || pages.innerHTML === "") {
+					return true;
+				} else {
+					return false;
+				};
+			};
+	
+/*
+				for (var i = 0; i < bookArray.length; i++) {
+					var newDiv = document.createElement("div");
+					container.appendChild(newDiv);
+					newDiv.style.background = "#2B616D"; 
+					newDiv.style.width = "100px";
+					newDiv.style.height = "100px";
+				};
+			});
+*/
+	</script>
+</body>
+</html>

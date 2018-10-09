@@ -1,0 +1,67 @@
+body {
+	box-sizing: border-box;
+	min-width: 600px;
+}
+
+form {
+	width: 250px;
+	height: 600px;
+	border: 2px solid black;
+	overflow: hidden;
+}
+
+fieldset {
+	border: 0;
+  	margin: 0;
+  	padding: 0;
+}
+
+input {
+  	font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  	margin: 0;
+}
+
+table {
+	background-color: #2B616D;
+	height: auto;
+	width: 300px;
+}
+
+td {
+  	border: 1px solid #cecfd5;
+  	height: 30px;
+  	width: auto;
+}
+
+tr {
+	height: 40px;
+}
+
+
+.book-info {
+	padding: 20px 20px 0 20px;
+}
+
+.book-info label {
+ 	display: block;
+  	font-weight: bold;
+  	margin-bottom: 20px;
+  	margin-right: 17px;
+}
+
+.book-info input {
+	border: 1px solid black;
+	padding: 6px;
+ 	margin-top: 6px;
+ 	margin-right: 16px;
+  	width: 100%;
+}
+
+.book-action {
+	width: auto;
+	height: 300px;
+}
+
+.book-action .btn {
+	cursor: pointer;
+}
